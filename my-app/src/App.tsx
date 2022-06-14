@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
-import {UncontrolledOnOff} from "./components/UncontrolledonOff/UncontrolledOnOff";
+import {UncontrolledOnOff} from "./components/UncontrolledOnOff/UncontrolledOnOff";
 import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
 import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
 import {Rating} from "./components/Rating/Rating";
