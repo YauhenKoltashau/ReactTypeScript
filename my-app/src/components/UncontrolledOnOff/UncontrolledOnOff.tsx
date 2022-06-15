@@ -2,13 +2,13 @@ import React, {useState} from 'react';
 
 
 export const UncontrolledOnOff = () => {
-    let [on, setOn] = useState(false)
+    let [switchOn, setSwitchOn] = useState(false)
     const onStyle = {
         width: '30px',
         height: '20px',
         padding: '2px',
         border: '2px solid #000',
-        backgroundColor: on === true ? 'green': 'white',
+        backgroundColor: switchOn ? 'green': 'white',
         display: "inline-block"
 
     }
@@ -18,7 +18,7 @@ export const UncontrolledOnOff = () => {
         height: '20px',
         padding: '2px',
         border: '2px solid #000',
-        backgroundColor: on === false ? 'red': 'white',
+        backgroundColor: !switchOn ? 'red': 'white',
         display: "inline-block"
     }
     const detectorStyle = {
@@ -28,7 +28,7 @@ export const UncontrolledOnOff = () => {
         borderRadius: '15px',
         padding: '2px',
         border: '2px solid #000',
-        backgroundColor: on === true ? 'green': 'red',
+        backgroundColor: switchOn ? 'green': 'red',
         display: "inline-block"
     }
 
@@ -37,11 +37,11 @@ export const UncontrolledOnOff = () => {
     return (<div>
             <div>
                 <div style={onStyle} onClick={() => {
-                    setOn(true)
+                    setSwitchOn(true)
                 }}>ON
                 </div>
                 <div style={offStyle} onClick={() => {
-                    setOn(false)
+                    setSwitchOn(false)
                 }}>OFF
                 </div>
                 <div style={detectorStyle}></div>

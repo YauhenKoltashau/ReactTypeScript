@@ -1,13 +1,16 @@
 import React from "react";
-
-export const AccordionBody = () => {
+import {itemType} from "./Accordion";
+type AccordionBodyPropsType = {
+    items: itemType[]
+    callBack: (value: any) => void
+}
+export const AccordionBody = (props:AccordionBodyPropsType) => {
     console.log("AccordionBody is rendering")
     return (
         <div>
             <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
+                {props.items.map((i)=>
+                <li key={i.id} onClick={()=>props.callBack(i.value)}>{i.title}</li>)}
 
             </ul>
         </div>

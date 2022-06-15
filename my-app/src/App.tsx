@@ -7,11 +7,16 @@ import {Rating} from "./components/Rating/Rating";
 import {ValuePropsType} from "./components/Star/Star";
 import {OnOff, OnOffType} from "./components/OnOff/OnOff";
 import {Accordion} from "./components/Accordion/Accordion";
+import {UncontrolledInput} from "./components/Input/UncontrolledInput";
+import {Input} from "./components/Input/Input";
+import {UsersSelect} from "./components/Select/Select";
 
 const App = () => {
     let[value, setValue] = useState<ValuePropsType>(0)
     let[on, setOn] = useState<OnOffType>(false)
     let[collapsed, setCollapsed]=useState(true)
+    let[inputValue, setInputValue] = useState('')
+    let[ selectValue, setSelectValue] = useState<string|undefined>(undefined)
 
 
     return (
@@ -22,14 +27,22 @@ const App = () => {
             <UncontrolledAccordion title={"Menu"}/>
             <UncontrolledAccordion title={"Users"}/>
 
-            <Accordion title={"Menu"} collapsed={collapsed} setCollapsed={()=>setCollapsed(!collapsed)}/>
-            <Accordion title={"Users"} collapsed={collapsed} setCollapsed={()=>setCollapsed(!collapsed)}/>
+            <Accordion title={"Menu"} collapsed={collapsed} setCollapsed={()=>setCollapsed(!collapsed)} items={[]} callBack={()=>{}}/>
+            <Accordion title={"Users"} collapsed={collapsed} setCollapsed={()=>setCollapsed(!collapsed)} items={[{id: '1', title:'Yauhen', value: 'developer' }, {id: '2', title:'Pavel', value: 'tester' }, {id: '3', title:'Rustam', value: 'developer' }]} callBack={(v)=>alert(`user with value ${v} must have be happy`)}/>
             <UncontrolledRating/>
             <Rating callBack={setValue} name={value} />
 
 
             <OnOff callBack={setOn} on={on}/>
             <UncontrolledOnOff/>
+            <Input value={inputValue} callBack={setInputValue}/>
+            <UncontrolledInput/>
+            <UsersSelect users={[
+                {id: '1', title: 'Yauhen', value: 'developer'},
+                {id: '2', title: 'Pavel', value: 'tester'},
+                {id: '3', title: 'Rustam', value: 'developer'},
+                {id: '4', title: 'Iryna', value: 'housewife'},
+            ]} value={selectValue} callBack={setSelectValue}/>
 
 
             </div>
