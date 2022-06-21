@@ -1,0 +1,11 @@
+.select {
+    border: 0.2px solid black;
+    width: 100px;
+
+}
+
+.blueBack {
+    border: 0.2px solid black;
+    width: 100px;
+    background: #1ea7fd;
+}

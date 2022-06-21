@@ -16,8 +16,7 @@ const App = () => {
     let[on, setOn] = useState<OnOffType>(false)
     let[collapsed, setCollapsed]=useState(true)
     let[inputValue, setInputValue] = useState('')
-    let[ selectValue, setSelectValue] = useState<string|undefined>(undefined)
-
+    let[ selectValue, setSelectValue] = useState<string|undefined>('2')
 
     return (
         <div className={"App"}>
@@ -38,10 +37,10 @@ const App = () => {
             <Input value={inputValue} callBack={setInputValue}/>
             <UncontrolledInput/>
             <UsersSelect users={[
-                {id: '1', title: 'Yauhen', value: 'developer'},
-                {id: '2', title: 'Pavel', value: 'tester'},
-                {id: '3', title: 'Rustam', value: 'developer'},
-                {id: '4', title: 'Iryna', value: 'housewife'},
+                {id: '1', title: 'Yauhen'},
+                {id: '2', title: 'Pavel'},
+                {id: '3', title: 'Rustam'},
+                {id: '4', title: 'Iryna'},
             ]} value={selectValue} callBack={setSelectValue}/>
 
 
