@@ -4,8 +4,7 @@ type AccordionBodyPropsType = {
     items: itemType[]
     callBack: (value: any) => void
 }
-export const AccordionBody = (props:AccordionBodyPropsType) => {
-    console.log("AccordionBody is rendering")
+export const AccordionBody =React.memo( (props:AccordionBodyPropsType) => {
     return (
         <div>
             <ul>
@@ -15,4 +14,4 @@ export const AccordionBody = (props:AccordionBodyPropsType) => {
             </ul>
         </div>
     )
-}
+})

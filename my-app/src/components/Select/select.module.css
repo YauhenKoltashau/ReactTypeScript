@@ -1,11 +1,33 @@
 .select {
-    border: 0.2px solid black;
+    position: absolute;
+    border: 1px solid black;
+    border-radius: 2px;
     width: 100px;
 
 }
 
+.item {
+    width: 100px;
+
+
+}
+
 .blueBack {
-    border: 0.2px solid black;
+
     width: 100px;
     background: #1ea7fd;
+}
+
+.main {
+    border: 1px solid whitesmoke;
+    display: inline-block;
+    min-height: 20px;
+    min-width: 50px;
+}
+
+.menuSelect {
+    background-color: whitesmoke;
+    position: absolute;
+    border: 1px solid lightgray;
+    border-radius: 5px;
 }

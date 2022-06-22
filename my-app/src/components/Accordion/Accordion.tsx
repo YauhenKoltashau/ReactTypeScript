@@ -14,8 +14,10 @@ type AccordionPropsType = {
     callBack: (value: any) => void
 }
 
-export const Accordion = (props: AccordionPropsType) => {
+export const AccordionWithMemo = (props: AccordionPropsType) => {
 
+    console.log('Accordion')
+    // console.log(typeof props)
         return <div>
             {<AccordionTitle title={props.title} collapsed={props.collapsed} callBack={props.setCollapsed}/>}
             {!props.collapsed && <AccordionBody items={props.items} callBack={props.callBack}/>}
@@ -23,6 +25,12 @@ export const Accordion = (props: AccordionPropsType) => {
         </div>
 
     }
+export const Accordion = React.memo(AccordionWithMemo)
+// export const Accordion = React.memo(AccordionWithMemo,areEqual)
 
+function areEqual(prevProps:AccordionPropsType, nextProps:AccordionPropsType) {
 
+    console.log(prevProps === nextProps)
+    return prevProps === nextProps
+}
 

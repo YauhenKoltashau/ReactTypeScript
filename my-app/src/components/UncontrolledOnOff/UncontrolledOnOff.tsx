@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 
 
 export const UncontrolledOnOff = () => {
+    console.log('UncontrolledOnOff rendered')
     let [switchOn, setSwitchOn] = useState(false)
     const onStyle = {
         width: '30px',

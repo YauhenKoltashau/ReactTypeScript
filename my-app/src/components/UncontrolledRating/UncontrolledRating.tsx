@@ -3,6 +3,7 @@ import {Star, ValuePropsType} from "../Star/Star";
 
 
 export const UncontrolledRating = () => {
+    console.log('UnControlledRating rendered')
     let [value, setValue] = useState<ValuePropsType>(0)
     const onClickChangeRating = (name:ValuePropsType) => {
     setValue(name)

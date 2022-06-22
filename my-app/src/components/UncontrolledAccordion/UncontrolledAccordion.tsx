@@ -8,6 +8,7 @@ type UncontrolledAccordionPropsType = {
 }
 
 export const UncontrolledAccordion = (props: UncontrolledAccordionPropsType) => {
+    console.log('UnControlledAccordion rendered')
     let [collapsed, setCollapsed] = useState(true)
     const onClickTitleHandler = (title: string) => {
         if (title)

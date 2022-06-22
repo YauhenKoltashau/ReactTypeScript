@@ -7,7 +7,7 @@ type RatingPropsType = {
 }
 
 export const Rating = (props: RatingPropsType) => {
-
+    console.log('Rating rendered')
     return (
         <div>
             <Star selected={props.name > 0} onClickChangeRating={props.callBack} name={1}/>
