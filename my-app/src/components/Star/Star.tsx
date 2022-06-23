@@ -7,7 +7,8 @@ export type StarPropsType = {
     onClickChangeRating: (name: ValuePropsType) => void
 }
 
-export const Star = (props: StarPropsType) => {
+export const Star = React.memo((props: StarPropsType) => {
+    console.log('Star')
     const onclickHandler = () => {
         props.onClickChangeRating(props.name)
 
@@ -15,6 +16,6 @@ export const Star = (props: StarPropsType) => {
     return (
         <span onClick={onclickHandler}>{props.selected ? <b>star </b> : 'star '}</span>
     )
-}
+})
 
 

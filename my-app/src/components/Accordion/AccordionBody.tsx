@@ -5,12 +5,11 @@ type AccordionBodyPropsType = {
     callBack: (value: any) => void
 }
 export const AccordionBody =React.memo( (props:AccordionBodyPropsType) => {
+    console.log('Body')
     return (
         <div>
             <ul>
-                {props.items.map((i)=>
-                <li key={i.id} onClick={()=>props.callBack(i.value)}>{i.title}</li>)}
-
+                {props.items.map((i)=> <li key={i.id} onClick={()=>props.callBack(i.value)}>{i.title}</li>)}
             </ul>
         </div>
     )

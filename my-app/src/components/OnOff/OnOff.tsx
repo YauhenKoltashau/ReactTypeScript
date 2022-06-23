@@ -4,7 +4,7 @@ export type OnOffPropsType = {
     callBack: (value:OnOffType )=> void
     on: OnOffType
 }
-export const OnOff = (props:OnOffPropsType) => {
+export const OnOff = React.memo((props:OnOffPropsType) => {
     console.log('OnOff rendered')
     const onStyle = {
         width: '30px',
@@ -54,4 +54,4 @@ export const OnOff = (props:OnOffPropsType) => {
 
         </div>
     )
-}
+})

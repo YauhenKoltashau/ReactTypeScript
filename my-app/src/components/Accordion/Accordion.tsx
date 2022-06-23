@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useCallback} from "react";
 import {AccordionTitle} from "./AccordionTitle";
 import {AccordionBody} from "./AccordionBody";
 export type itemType = {
@@ -15,12 +15,17 @@ type AccordionPropsType = {
 }
 
 export const AccordionWithMemo = (props: AccordionPropsType) => {
-
     console.log('Accordion')
     // console.log(typeof props)
         return <div>
-            {<AccordionTitle title={props.title} collapsed={props.collapsed} callBack={props.setCollapsed}/>}
-            {!props.collapsed && <AccordionBody items={props.items} callBack={props.callBack}/>}
+            {<AccordionTitle
+                title={props.title}
+                callBack={props.setCollapsed}
+            />}
+            {!props.collapsed && <AccordionBody
+                items={props.items}
+                callBack={props.callBack}
+            />}
 
         </div>
 

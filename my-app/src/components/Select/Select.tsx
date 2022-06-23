@@ -1,20 +1,29 @@
-import {useState, KeyboardEvent, useReducer} from "react";
+import {useState, KeyboardEvent, useReducer, useEffect} from "react";
 import styles from './select.module.css'
 import {ActiveSelectCreator, SelectReducer, SetItemIdCreator} from "./SelectReducer";
-
+type CityType = {
+    id: string
+    title: string
+}
 type UserType = {
     id: string
     title: string
 }
-type UsersSelectPropsType = {
+type CitiesType = {
+    id: string
+    title: string
+    cities:CityType[]
+}
+type ForSelectPropsType = {
     users: UserType[]
+    countries?: CitiesType[]
     value: any
     callBack: (value: any) => void
 }
 
-export const UsersSelect = (props: UsersSelectPropsType) => {
-    console.log('Select rendered')
 
+export const ForSelect:React.FC<ForSelectPropsType> = ({users,value, callBack,...restProps}) => {
+    console.log('Select rendered')
     const [state, dispatch] = useReducer(SelectReducer, {
         activeSelect: false,
         itemId: ''
@@ -41,7 +50,7 @@ export const UsersSelect = (props: UsersSelectPropsType) => {
 
     }
     const setNewUser = (id: string) => {
-        props.callBack(id)
+        callBack(id)
         dispatch(ActiveSelectCreator())
     }
     return (
@@ -64,18 +73,19 @@ export const UsersSelect = (props: UsersSelectPropsType) => {
             {state.activeSelect
                 ? <>
                     <div className={styles.select}>
-                        {props.users.filter((u) => u.id === props.value).map((u) => (
+
+                        {users.filter((u) => u.id === value).map((u) => (
                             <div key={u.id} onClick={() => setUser(u.id)}>{u.title}        </div>
                         ))}
                     </div>
                     <br/>
-                    <AllPersons users={props.users} onCLickCallBack={setNewUser} onPressCallBack={onKeyPressHandler}
+                    <AllPersons users={users} onCLickCallBack={setNewUser} onPressCallBack={onKeyPressHandler}
                                 currentId={state.itemId}/>
 
                 </>
 
                 : <div className={styles.select}>
-                    {props.users.filter((u) => u.id === props.value).map((u) => (
+                    {users.filter((u) => u.id === value).map((u) => (
                         <div key={u.id} onClick={() => setUser(u.id)}>{u.title}        </div>
                     ))
 
@@ -102,6 +112,7 @@ type AllPersonsPropsType = {
 const AllPersons = (props: AllPersonsPropsType) => {
 
     const [currentPosition, setCurrentPosition] = useState<null | string>(props.currentId)
+    useEffect(()=>{setCurrentPosition(props.currentId)},[props.currentId])
     const onMouseEnter = (id: string) => {
         setCurrentPosition(id)
     }

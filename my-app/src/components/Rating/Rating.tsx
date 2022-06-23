@@ -6,8 +6,8 @@ type RatingPropsType = {
     callBack: (name: ValuePropsType) => void
 }
 
-export const Rating = (props: RatingPropsType) => {
-    console.log('Rating rendered')
+export const Rating = React.memo((props: RatingPropsType) => {
+    console.log('Rating')
     return (
         <div>
             <Star selected={props.name > 0} onClickChangeRating={props.callBack} name={1}/>
@@ -18,4 +18,4 @@ export const Rating = (props: RatingPropsType) => {
 
         </div>
     )
-}
+})
