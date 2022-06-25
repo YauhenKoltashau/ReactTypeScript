@@ -10,6 +10,8 @@ import {Accordion} from "./components/Accordion/Accordion";
 import {UncontrolledInput} from "./components/Input/UncontrolledInput";
 import {Input} from "./components/Input/Input";
 import {ForSelect} from "./components/Select/Select";
+import {Clock} from "./components/Clock/Clock";
+import {AnalogClock} from "./components/Clock/AnalogClock";
 
 export const App = React.memo( () => {
     let[value, setValue] = useState<ValuePropsType>(0)
@@ -17,6 +19,7 @@ export const App = React.memo( () => {
     let[collapsed, setCollapsed]=useState(true)
     let[inputValue, setInputValue] = useState('')
     let[ selectValue, setSelectValue] = useState<string|undefined>('2')
+    let[switchClock, setSwitchClock] =useState( true)
     const [items, setItems] = useState([
         {id: '1', title:'Yauhen', value: 'developer' },
         {id: '2', title:'Pavel', value: 'tester' },
@@ -28,6 +31,9 @@ export const App = React.memo( () => {
     const memoizedOn = useMemo(()=>{
         return setOn
     },[on])
+    const switchClocker = useCallback(()=>{
+        setSwitchClock(!switchClock)
+    },[switchClock])
 
 
 
@@ -64,6 +70,17 @@ export const App = React.memo( () => {
             {/*    {id: '3', title: 'Rustam'},*/}
             {/*    {id: '4', title: 'Iryna'},*/}
             {/*]} value={selectValue} callBack={setSelectValue}/>*/}
+            <div>
+                <button onClick={switchClocker}>CLock</button>
+            </div>
+
+            {switchClock
+                ?<Clock/>
+                :<AnalogClock/>
+            }
+
+
+
 
 
             </div>
