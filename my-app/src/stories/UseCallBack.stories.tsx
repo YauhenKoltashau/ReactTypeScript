@@ -16,7 +16,7 @@ export const Books = () => {
         return addBook
     },[books])
 
-    const memoizedBook2 = useCallback(()=>{addBook
+    const memoizedBook2 = useCallback(()=>{addBook()
     },[books])
     return <>
     <Book addBook={memoizedBook2}/>
