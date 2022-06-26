@@ -25,7 +25,7 @@ export const AnalogClock: React.FC<PropsType> = (props) => {
                     }}
                 />
                 <div
-                    className="min_hand"
+                    className={c.min_hand}
                     style={{
                         transform: `rotateZ(${date.getMinutes() * 6}deg)`
                     }}
